@@ -25,9 +25,8 @@ namespace NewtryxWebAPI.Business
             oOrder.OrderDateTime = DateTime.Now;
             oOrder.OrderNumber = String.Format("{0:hhddmmssmmmyyyy}", DateTime.Now);
             oOrder.Description = "Hello there";
-            var oList = oOrder.OrderDetails;
             _context.Orders.Add(oOrder);
-            //_context.SaveChanges();
+            _context.SaveChanges();
 
             int orderId = oOrder.OrderId;
 
@@ -42,7 +41,6 @@ namespace NewtryxWebAPI.Business
                 objOrderDetail.Quantity = item.Quantity;
                 _context.OrderDetails.Add(objOrderDetail);
                 _context.SaveChanges();
-
 
             }
         }
